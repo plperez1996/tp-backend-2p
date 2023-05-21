@@ -1,0 +1,16 @@
+<h1>Sistema de reservas de mesas en restaurantes</h1>
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+
+  <ul ngbNav [activeId]="route.fragment | async" class="nav-tabs">
+    <li ngbNavItem="/crear-reserva">
+      <a ngbNavLink routerLink="/crear-reserva">Reservar Mesas</a>
+    </li>
+    <li ngbNavItem="/listar-reserva">
+      <a ngbNavLink routerLink="/listar-reserva">Listar Reservas</a>
+    </li>
+  </ul>
+
+</nav>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>
