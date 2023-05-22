@@ -140,7 +140,7 @@ export class CrearReservaComponent implements OnInit {
   @ViewChild('instance', {static: true}) instance: NgbTypeahead;
   focus$ = new Subject<string>();
   click$ = new Subject<string>();
-  formatter = (cliente: Cliente) => cliente.nombre+' '+cliente.apellido;
+  formatter = (cliente: Cliente) => cliente.cedula.toString();
 
 
   search: OperatorFunction<string, readonly string[]> = (text$: Observable<string>) => {
@@ -150,7 +150,7 @@ export class CrearReservaComponent implements OnInit {
     var cadena;
     cadena = merge(debouncedText$, inputFocus$, clicksWithClosedPopup$).pipe(
       map(term => (term === '' ? this.clientes
-        : this.clientes.filter(v => (v.nombre+' '+v.apellido).toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
+        : this.clientes.filter(v => (v.cedula.toString()).indexOf(term) > -1)).slice(0, 10))
     );
     return cadena;
   }
