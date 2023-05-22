@@ -45,17 +45,3 @@ create table reserva(
 alter table reserva add constraint id_restaurante_fk_res foreign key(id_restaurante) references restaurante(id);
 alter table reserva add constraint id_mesa_fk foreign key(id_mesa) references mesa(id);
 alter table reserva add constraint id_cliente_fk foreign key(id_cliente) references cliente(id);
-
-create table categoria(
-    id integer primary key not null GENERATED ALWAYS AS IDENTITY,
-    nombre text not null
-);
-
-create table producto(
-    id integer primary key not null GENERATED ALWAYS AS IDENTITY,
-    nombre text not null,
-    id_categoria integer not null,
-    precio integer not null
-);
-
-alter table producto add constraint id_categoria_fk_pro foreign key(id_categoria) references categoria(id);
